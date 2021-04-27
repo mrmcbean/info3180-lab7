@@ -63,6 +63,7 @@ const Home = {
 
 
 const UploadForm = app.component('upload-form',{
+  
     template: `
     <form @submit.prevent="uploadPhoto" id="uploadForm" name="uploadForm">
         <div class="form-group">
@@ -130,7 +131,7 @@ const NotFound = {
 const routes = [
     { path: "/", component: Home },
     // Put other routes here
-    { path: '/upload', component: UploadForm},
+    { path: "/upload", component: UploadForm},
     // This is a catch all route in case none of the above matches
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound },
     
