@@ -24,7 +24,7 @@ app.component('app-header', {
           </li>
 
           <li class="nav-item">
-            <router-link class="nav-link" to="/upload">Upload</router-link>
+            <router-link class="nav-link" to="/upload"> Upload </router-link>
           </li>
         </ul>
       </div>
@@ -62,7 +62,7 @@ const Home = {
 };
 
 
-const UploadForm = app.component('upload-form',{
+app.component('upload-form',{
   
     template: `
     <form @submit.prevent="uploadPhoto" id="uploadForm" name="uploadForm">
@@ -111,6 +111,9 @@ const UploadForm = app.component('upload-form',{
         return {}
     }
 })
+
+const UploadForm = app.component('upload-form')
+
 
 const NotFound = {
     name: 'NotFound',

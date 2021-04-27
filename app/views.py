@@ -19,8 +19,8 @@ from flask.json import jsonify
 
 def upload():
     form = UploadForm()
-    if request.methods == "POST" and uploadform.validate_on_submit():
-        photo = uploadform.photo.data
+    if request.method == "POST" and form.validate_on_submit():
+        photo = form.photo.data
         filename=secure_filename(photo.filename)
         photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         message = "File Upload Successful"
