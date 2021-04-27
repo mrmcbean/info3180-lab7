@@ -16,26 +16,26 @@ from flask.json import jsonify
 ###
 
 @app.route('/api/upload', methods=["POST"]) 
-"Route for api upload"
+
 def upload():
     form = UploadForm()
-    if request.methods == 'POST' and uploadform.validate_on_submit():
+    if request.methods == "POST" and uploadform.validate_on_submit():
         photo = uploadform.photo.data
         filename=secure_filename(photo.filename)
         photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         message = "File Upload Successful"
         description = form.description.data
-        form_data = [
+        data = [
             {
                 "message": message,
                 "filename": filename,
                 "description": description
             }
         ]
-        return jsonify(form_data = form_data)
-        else: 
-            errors = form_errors(form)
-            return jsonify(errors = errors)
+        return jsonify(data = data)
+    else: 
+        errors = form_errors(form)
+        return jsonify(errors = errors)
 
 
 
